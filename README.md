@@ -62,6 +62,10 @@ Backend sudah dideploy di:
 
 Bagian ini disiapkan agar juri cepat memahami bagaimana mencoba sistem.
 
+<p align="center">
+	<img src="./demo-nexWAVE.gif" alt="Demo nexWAVE" width="900" />
+</p>
+
 | Item Demo | Keterangan |
 |---|---|
 | Akses aplikasi | Jalankan lokal dari `nexWave-Frontend/` |
