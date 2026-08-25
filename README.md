@@ -64,9 +64,15 @@ npm install
 
 ### 4) Siapkan environment
 
-Buat file `.env.local` di dalam folder `nexWave-Frontend/`.
+Langkah ini wajib sebelum menjalankan aplikasi.
 
-Isi variabel berikut menggunakan kredensial/secret yang sudah diberikan:
+Salin template environment yang sudah disediakan:
+
+```bash
+cp .env.example .env.local
+```
+
+Lalu isi semua variabel di `.env.local` menggunakan kredensial/secret yang sudah diberikan:
 
 ```env
 NEXT_PUBLIC_SUPABASE_URL=...
@@ -78,6 +84,8 @@ Catatan:
 
 - `NEXT_PUBLIC_SUPABASE_URL` dan `NEXT_PUBLIC_SUPABASE_ANON_KEY` wajib
 - `NEXT_PUBLIC_API_BASE_URL` disarankan aktif agar fitur endpoint backend dapat dipakai
+- Jangan biarkan nilai placeholder (misalnya `isi-dengan-...`) tetap ada di file `.env.local`
+- Setiap perubahan file env memerlukan restart development server
 
 ### 5) Jalankan development server
 
@@ -117,7 +125,8 @@ Setelah login, user diarahkan sesuai role ke dashboard manager/operator.
 ## Troubleshooting Singkat
 
 - Error `supabaseUrl is required`:
-	- Pastikan `.env.local` sudah ada dan variabel terisi benar
+	- Pastikan `.env.local` sudah dibuat dari `.env.example`
+	- Pastikan semua nilai placeholder sudah diganti dengan secret yang valid
 	- Restart dev server setelah mengubah env
 - `EBADENGINE` saat `npm install`:
 	- Update Node.js ke >= 20.9
