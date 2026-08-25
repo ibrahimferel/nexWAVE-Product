@@ -23,7 +23,16 @@ Repositori ini berisi sistem operasional warehouse end-to-end:
 - Backend ML/API (FastAPI di Modal) yang sudah dideploy
 - Dataset dummy dan skrip backend pendukung
 
-Tujuan dokumen ini adalah membantu juri menjalankan proyek secara lokal dari parent folder repositori ini.
+## Catatan Struktur Repository
+
+Pengerjaan backend/AI dan frontend nexWAVE dilakukan secara terpisah melalui dua repository:
+
+- Backend/AI: https://github.com/febryannnn/nexwave-backend
+- Frontend: https://github.com/ahmdlka/nexWave-Frontend
+
+Kedua repository tersebut saling terhubung melalui API backend yang telah dideploy. Untuk menjalankan aplikasi frontend secara lokal, cukup gunakan repository frontend dan konfigurasi environment sesuai petunjuk di bawah. Backend tidak perlu dijalankan secara lokal karena layanan backend untuk demo sudah dideploy.
+
+Tujuan dokumen ini adalah membantu juri menjalankan dan memahami proyek secara lokal, khususnya aplikasi frontend dan integrasinya dengan layanan backend/AI.
 
 ## Quick Start (Juri)
 
