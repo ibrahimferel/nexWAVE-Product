@@ -1,3 +1,20 @@
+<p align="center">
+	<img src="nexWave-Frontend/public/logo-nexwave.svg" alt="nexWAVE" width="320" />
+</p>
+
+<p align="center">
+	<strong>Warehouse Operations Control</strong><br/>
+	Intelligent order batching + picker routing in one operational dashboard.
+</p>
+
+<p align="center">
+	<img alt="Next.js" src="https://img.shields.io/badge/Next.js-16-black" />
+	<img alt="React" src="https://img.shields.io/badge/React-19-149ECA" />
+	<img alt="TypeScript" src="https://img.shields.io/badge/TypeScript-5-3178C6" />
+	<img alt="Supabase" src="https://img.shields.io/badge/Supabase-Auth%20%2B%20Postgres-3ECF8E" />
+	<img alt="Backend" src="https://img.shields.io/badge/Backend-FastAPI%20on%20Modal-5B4BFF" />
+</p>
+
 # nexWAVE
 
 Repositori ini berisi sistem operasional warehouse end-to-end:
@@ -7,6 +24,18 @@ Repositori ini berisi sistem operasional warehouse end-to-end:
 - Dataset dummy dan skrip backend pendukung
 
 Tujuan dokumen ini adalah membantu juri menjalankan proyek secara lokal dari parent folder repositori ini.
+
+## Quick Start (Juri)
+
+```bash
+cd nexWave-Frontend
+cp .env.example .env.local
+# lengkapi .env.local dengan secret yang sudah dibagikan
+npm install
+npm run dev
+```
+
+Lalu buka http://localhost:3000
 
 ## Gambaran Singkat Proyek
 
@@ -28,6 +57,27 @@ Arsitektur eksekusi:
 Backend sudah dideploy di:
 
 - https://farelfebryan06--nexwave-api-fastapi-app.modal.run
+
+## demo-nexWAVE
+
+Bagian ini disiapkan agar juri cepat memahami bagaimana mencoba sistem.
+
+| Item Demo | Keterangan |
+|---|---|
+| Akses aplikasi | Jalankan lokal dari `nexWave-Frontend/` |
+| URL lokal | `http://localhost:3000` |
+| Login manager | Google OAuth (akun yang sudah didaftarkan) |
+| Login operator | Email/password dummy (sudah dibagikan) |
+| Fitur kunci yang didemokan | Monitoring wave aktif, checklist picking, close wave, process pending orders |
+| Backend deploy | `https://farelfebryan06--nexwave-api-fastapi-app.modal.run` |
+
+Checklist skenario demo yang direkomendasikan:
+
+1. Login sebagai manager dan buka dashboard wave aktif.
+2. Login sebagai operator untuk menjalankan picking route.
+3. Konfirmasi pick beberapa lokasi lalu cek update realtime di sisi manager.
+4. Tutup wave dan lihat assignment wave berikutnya.
+5. Trigger process pending orders (opsional) untuk simulasi order due.
 
 ## Struktur Folder Penting
 
@@ -86,6 +136,8 @@ Catatan:
 - `NEXT_PUBLIC_API_BASE_URL` disarankan aktif agar fitur endpoint backend dapat dipakai
 - Jangan biarkan nilai placeholder (misalnya `isi-dengan-...`) tetap ada di file `.env.local`
 - Setiap perubahan file env memerlukan restart development server
+
+Tip: nilai awal contoh ada di `.env.example`, tetapi wajib diganti dengan secret asli sebelum aplikasi dijalankan.
 
 ### 5) Jalankan development server
 
