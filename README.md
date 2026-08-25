@@ -28,9 +28,11 @@ Tujuan dokumen ini adalah membantu juri menjalankan proyek secara lokal dari par
 ## Quick Start (Juri)
 
 ```bash
+git clone https://github.com/ibrahimferel/nexWAVE-Product.git
+cd nexWAVE-Product
 cd nexWave-Frontend
-cp .env.example .env.local
-# lengkapi .env.local dengan secret yang sudah dibagikan
+cp .env.example .env
+# lengkapi .env dengan secret yang sudah dibagikan
 npm install
 npm run dev
 ```
@@ -71,9 +73,23 @@ Bagian ini disiapkan agar juri cepat memahami bagaimana mencoba sistem.
 | Akses aplikasi | Jalankan lokal dari `nexWave-Frontend/` |
 | URL lokal | `http://localhost:3000` |
 | Login manager | Google OAuth (akun yang sudah didaftarkan) |
-| Login operator | Email/password dummy (sudah dibagikan) |
+| Login operator | Email/password dummy (7 akun, lihat daftar kredensial di bawah) |
 | Fitur kunci yang didemokan | Monitoring wave aktif, checklist picking, close wave, process pending orders |
 | Backend deploy | `https://farelfebryan06--nexwave-api-fastapi-app.modal.run` |
+
+### Kredensial Operator (7 Akun Dummy)
+
+Kredensial password fixed `pickerN`, sama setiap dijalankan:
+
+| Operator | Email | Password |
+|---|---|---|
+| Operator 1 | operator1@nexwave.local | picker1 |
+| Operator 2 | operator2@nexwave.local | picker2 |
+| Operator 3 | operator3@nexwave.local | picker3 |
+| Operator 4 | operator4@nexwave.local | picker4 |
+| Operator 5 | operator5@nexwave.local | picker5 |
+| Operator 6 | operator6@nexwave.local | picker6 |
+| Operator 7 | operator7@nexwave.local | picker7 |
 
 Checklist skenario demo yang direkomendasikan:
 
@@ -92,13 +108,20 @@ Checklist skenario demo yang direkomendasikan:
 
 Ikuti langkah berikut dari parent folder repositori ini.
 
-### 1) Masuk ke folder frontend
+### 1) Clone repository
+
+```bash
+git clone https://github.com/ibrahimferel/nexWAVE-Product.git
+cd nexWAVE-Product
+```
+
+### 2) Masuk ke folder frontend
 
 ```bash
 cd nexWave-Frontend
 ```
 
-### 2) Pastikan prasyarat
+### 3) Pastikan prasyarat
 
 - Node.js versi 20.9 atau lebih baru
 - npm tersedia
@@ -110,23 +133,23 @@ node -v
 npm -v
 ```
 
-### 3) Install dependency
+### 4) Install dependency
 
 ```bash
 npm install
 ```
 
-### 4) Siapkan environment
+### 5) Siapkan environment
 
 Langkah ini wajib sebelum menjalankan aplikasi.
 
 Salin template environment yang sudah disediakan:
 
 ```bash
-cp .env.example .env.local
+cp .env.example .env
 ```
 
-Lalu isi semua variabel di `.env.local` menggunakan kredensial/secret yang sudah diberikan:
+Lalu isi semua variabel di `.env` menggunakan kredensial/secret yang sudah diberikan:
 
 ```env
 NEXT_PUBLIC_SUPABASE_URL=...
@@ -138,12 +161,12 @@ Catatan:
 
 - `NEXT_PUBLIC_SUPABASE_URL` dan `NEXT_PUBLIC_SUPABASE_ANON_KEY` wajib
 - `NEXT_PUBLIC_API_BASE_URL` disarankan aktif agar fitur endpoint backend dapat dipakai
-- Jangan biarkan nilai placeholder (misalnya `isi-dengan-...`) tetap ada di file `.env.local`
+- Jangan biarkan nilai placeholder (misalnya `isi-dengan-...`) tetap ada di file `.env`
 - Setiap perubahan file env memerlukan restart development server
 
 Tip: nilai awal contoh ada di `.env.example`, tetapi wajib diganti dengan secret asli sebelum aplikasi dijalankan.
 
-### 5) Jalankan development server
+### 6) Jalankan development server
 
 ```bash
 npm run dev
@@ -159,7 +182,7 @@ Jika port 3000 sudah dipakai:
 npm run dev -- -p 3001
 ```
 
-### 6) (Opsional) Validasi cepat
+### 7) (Opsional) Validasi cepat
 
 ```bash
 npm run lint
@@ -169,7 +192,7 @@ npm run test
 ## Alur Login
 
 - Manager: login via Google OAuth
-- Operator: login via email/password akun dummy
+- Operator: login via email/password akun dummy (7 akun pada tabel kredensial di atas)
 
 Setelah login, user diarahkan sesuai role ke dashboard manager/operator.
 
@@ -181,7 +204,7 @@ Setelah login, user diarahkan sesuai role ke dashboard manager/operator.
 ## Troubleshooting Singkat
 
 - Error `supabaseUrl is required`:
-	- Pastikan `.env.local` sudah dibuat dari `.env.example`
+	- Pastikan `.env` sudah dibuat dari `.env.example`
 	- Pastikan semua nilai placeholder sudah diganti dengan secret yang valid
 	- Restart dev server setelah mengubah env
 - `EBADENGINE` saat `npm install`:
